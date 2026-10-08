@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "shared/sim/StepController.hpp"
@@ -11,6 +12,11 @@
 // arrive, consumed by module::Locomotion. One struct per LocoApi call NUbots uses.
 
 namespace k1sim::message {
+
+    struct VideoRecordRequest {
+        std::string path;
+        double duration = 180.;
+    };
 
     struct WalkCommand {  // ApiId::MOVE {"vx","vy","vyaw"} — body-frame velocities
         double vx    = 0.0;
